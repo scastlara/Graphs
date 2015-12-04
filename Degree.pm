@@ -227,7 +227,7 @@ sub _sort_by_degree {
     my @output = ();
     my $sort_function;
 
-    if ($rule =~ m/TOTAL/i) {
+    if ($rule =~ m/^TOTAL$/i) {
         $sort_function = \&_by_total;
     } elsif ($rule =~ m/^(INDEGREE|IN)$/i or $rule =~ m/^(OUTDEGREE|OUT)$/i) {
         $sort_function = \&_by_inout
