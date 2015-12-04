@@ -1,4 +1,3 @@
-#!/usr/bin/perl
 package Graphs::Degree;
 
 =head1 NAME
@@ -153,7 +152,6 @@ use warnings;
 use strict;
 use Exporter qw(import);
 use Carp;
-use Dot::Parser qw(parse_dot);
 
 #===============================================================================
 # VARIABLES AND OPTIONS
@@ -162,43 +160,11 @@ our @ISA         = qw(Exporter);
 our @EXPORT_OK   = qw(nodes_by_degree);
 our %EXPORT_TAGS = ( DEFAULT => [qw(nodes_by_degree)]);
 
-__PACKAGE__->run() unless caller();
-
 
 #===============================================================================
 # FUNCTIONS
 #===============================================================================
 
-sub run {
-    my $file    = shift @ARGV;
-    my $output  = shift @ARGV;
-    my $rule    = shift @ARGV;
-
-    croak "\nYou have to give me one DOT file to read! 1st argument.\n\n" 
-        unless $file;
-    croak "\nYou have to tell me where to save the results. 2nd argument.\n\n" 
-        unless $output;
-
-    if (not defined $rule) {
-        print STDERR "\nI'll sort the nodes by TOTAL degree. ", 
-                     "To change this behaviour substitute rule by IN or OUT:\n",
-                     "perl Degree.pm file.dot out.tbl RULE\n\n";
-        $rule = "TOTAL";
-    }
-
-    my $graph = parse_dot($file);
-    my $options = {
-        graph => $graph,
-        file  => $output,
-        rule  => "$rule"
-    };
-
-    nodes_by_degree($options);
-
-    return;
-}
-
-#--------------------------------------------------------------------------------
 sub nodes_by_degree {
     my $input     = shift;
     my $graph     = $input->{graph};
