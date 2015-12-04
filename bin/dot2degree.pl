@@ -8,6 +8,8 @@ use Graphs::Degree qw(nodes_by_degree);
 
 # GET OPTIONS
 my %options;
+$options{rule} = "TOTAL"; # default
+
 GetOptions (
     \%options, 
     "input=s",
@@ -21,12 +23,12 @@ if (not defined $options{input}) {
     die "You have to give me an input DOT file\nUse option -i\n";
 } elsif (not defined $options{output}) {
     die "You have to give me an output file name\nUse option -o\n";
-} elsif (not defined $options{rule}) {
-    print STDERR "Using Total degree to sort the nodes.\n",
-                 "You can change this behaviour use the option -r ",
-                 "\t(choose IN for in-degree or OUT for out-degree)\n";
-}
+} 
 
+print STDERR "Using $options{rule} degree to sort the nodes.\n",
+             "You can change this behaviour use the option -r\n",
+             "\t(choose IN for in-degree or OUT for out-degree)\n";
+             
 # MAIN SCRIPT
 my $graph = parse_dot( $options{input} );
 

@@ -1,0 +1,4 @@
+Makefile.PL
+lib/Graphs/Degree.pm
+bin/dot2degree.pl
+README.md
