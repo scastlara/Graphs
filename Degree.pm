@@ -110,6 +110,7 @@ use warnings;
 use strict;
 use Exporter qw(import);
 use Carp;
+use Dot::Parser qw(parse_dot);
 
 #===============================================================================
 # VARIABLES AND OPTIONS
@@ -117,6 +118,37 @@ use Carp;
 our @ISA         = qw(Exporter);
 our @EXPORT_OK   = qw(nodes_by_degree);
 our %EXPORT_TAGS = ( DEFAULT => [qw(nodes_by_degree)]);
+
+
+__PACKAGE__->run() unless caller();
+
+sub run {
+    my $file    = shift @ARGV;
+    my $output  = shift @ARGV;
+    my $rule    = shift @ARGV;
+
+    croak "You have to give me one DOT file to read! 1st argument.\n" 
+        unless $file;
+    croak "You have to tell me where to save the results. 2nd argument.\n" 
+        unless $output;
+
+    if (not defined $rule) {
+        print STDERR "\nI'll sort the nodes by total degree. ", 
+                     "To change substitute rule by IN or OUT:\n",
+                     "perl Degree.pm file.dot out.tbl RULE\n\n";
+    }
+
+    my $graph = parse_dot($file);
+    my $options = {
+        graph => $graph,
+        file  => $output,
+        rule  => "$rule"
+    };
+
+    nodes_by_degree($options);
+
+    return;
+}
 
 #--------------------------------------------------------------------------------
 sub nodes_by_degree {
@@ -193,10 +225,10 @@ sub _sort_by_degree {
 
     if ($rule =~ m/TOTAL/i) {
         $sort_function = \&_by_total;
-    } elsif ($rule =~ m/INDEGREE|IN/i or $rule =~ m/OUTDEGREE|OUT/i) {
+    } elsif ($rule =~ m/^(INDEGREE|IN)$/i or $rule =~ m/^(OUTDEGREE|OUT)$/i) {
         $sort_function = \&_by_inout
     } else {
-        croak "Not defined sort rule $rule\n Use TOTAL, IN or OUT\n";
+        croak "\nNot defined sort rule $rule\n Use TOTAL, IN or OUT\n\n";
     }
 
     my @sorted = sort { 
