@@ -50,6 +50,17 @@ v0.1.0
         say "Node $node->{name} has indegree $node->{in} and outdegree $node->{out}";
     }
 
+# ------
+
+# You can use this module as a script:
+
+    perl Degree.pm input.dot output.tbl RULE
+
+    # You can use the rules 
+        TOTAL
+        IN
+        OUT
+
 =head1 Description
 
 =head2 nodes_by_degree
