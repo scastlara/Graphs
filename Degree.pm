@@ -119,8 +119,12 @@ our @ISA         = qw(Exporter);
 our @EXPORT_OK   = qw(nodes_by_degree);
 our %EXPORT_TAGS = ( DEFAULT => [qw(nodes_by_degree)]);
 
-
 __PACKAGE__->run() unless caller();
+
+
+#===============================================================================
+# FUNCTIONS
+#===============================================================================
 
 sub run {
     my $file    = shift @ARGV;
