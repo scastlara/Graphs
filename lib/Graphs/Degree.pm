@@ -52,9 +52,9 @@ v0.1.0
 
 ----
 
-You can use this module as a script:
+You can use dot2degree.pl to sort the nodes of a graph in DOT (graphviz format).
 
-    Degree.pm input.dot output.tbl RULE
+    dot2degree.pl -i input.dot -o output.tbl -r RULE
 
     # You can use the rules 
         TOTAL
