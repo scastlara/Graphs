@@ -51,11 +51,11 @@ v0.1.0
         say "Node $node->{name} has indegree $node->{in} and outdegree $node->{out}";
     }
 
-------
+----
 
 You can use this module as a script:
 
-    perl Degree.pm input.dot output.tbl RULE
+    Degree.pm input.dot output.tbl RULE
 
     # You can use the rules 
         TOTAL
@@ -71,7 +71,7 @@ This module only exports a function: nodes_by_degree()
 This function does two things: it returns a data structure with the nodes of the graph ordered by
 in-degree, out-degree or total-degree; and it prints the ordered nodes to a file (if specified).
 
-This function takes a hash reference with three elements described below.
+This function takes a hash reference with three elements described below (Arguments section).
 
 It returns a list with the nodes sorted by the specified rule. The data structure is a list of hashes. Each element
 of the list points to a hash with three keys, "name", "in" and "out". To access the elements of the list:
@@ -112,8 +112,39 @@ If you don't specify one, it won't print the results.
 
 =back
 
+=head1 Installation
 
+perl Makefile.PL
+make
+make install
 
+=head1 Dependencies
+
+=over 8
+
+=item Dot::Parser
+
+=back
+
+=head1 LICENSE
+
+    COPYRIGHT 
+
+    (C) 2015 - Sergio CASTILLO LARA
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 
 =cut
