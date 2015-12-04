@@ -114,9 +114,9 @@ If you don't specify one, it won't print the results.
 
 =head1 Installation
 
-perl Makefile.PL
-make
-make install
+    perl Makefile.PL
+    make
+    make install
 
 =head1 Dependencies
 

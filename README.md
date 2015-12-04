@@ -107,9 +107,9 @@ of the list points to a hash with three keys, "name", "in" and "out". To access 
 
 # Installation
 
-perl Makefile.PL
-make
-make install
+    perl Makefile.PL
+    make
+    make install
 
 # Dependencies
 
