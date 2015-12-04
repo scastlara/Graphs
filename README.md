@@ -48,7 +48,7 @@ v0.1.0
         say "Node $node->{name} has indegree $node->{in} and outdegree $node->{out}";
     }
 
-\# ------
+\------
 
 You can use this module as a script:
 
