@@ -9,9 +9,18 @@ Graphs::Degree
 v0.1.0
 
 =head1 SYNOPSIS
+    
+    use Graphs::Degree;
 
-    # To use the module:
+    # To use the module we need a graph in a hash of hashes:
+    my $graph;
 
+    $graph->{node1}->{node2} = undef;
+    $graph->{node1}->{node3} = undef;
+    $graph->{node2}->{node3} = undef;
+    $graph->{node3}->{node1} = undef;
+    
+    # Then we call the module
     my $nodes = nodes_by_degree(
         {
             graph => $graph,
