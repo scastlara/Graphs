@@ -143,9 +143,9 @@ sub run {
     my $output  = shift @ARGV;
     my $rule    = shift @ARGV;
 
-    croak "You have to give me one DOT file to read! 1st argument.\n" 
+    croak "\nYou have to give me one DOT file to read! 1st argument.\n\n" 
         unless $file;
-    croak "You have to tell me where to save the results. 2nd argument.\n" 
+    croak "\nYou have to tell me where to save the results. 2nd argument.\n\n" 
         unless $output;
 
     if (not defined $rule) {
