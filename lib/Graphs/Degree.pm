@@ -149,9 +149,10 @@ sub run {
         unless $output;
 
     if (not defined $rule) {
-        print STDERR "\nI'll sort the nodes by total degree. ", 
-                     "To change substitute rule by IN or OUT:\n",
+        print STDERR "\nI'll sort the nodes by TOTAL degree. ", 
+                     "To change this behaviour substitute rule by IN or OUT:\n",
                      "perl Degree.pm file.dot out.tbl RULE\n\n";
+        $rule = "TOTAL";
     }
 
     my $graph = parse_dot($file);
