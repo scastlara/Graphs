@@ -1,3 +1,4 @@
+#!/usr/bin/perl
 package Graphs::Degree;
 
 =head1 NAME
@@ -130,7 +131,7 @@ our @ISA         = qw(Exporter);
 our @EXPORT_OK   = qw(nodes_by_degree);
 our %EXPORT_TAGS = ( DEFAULT => [qw(nodes_by_degree)]);
 
-__PACKAGE__->run(@ARGV) unless caller();
+__PACKAGE__->run() unless caller();
 
 
 #===============================================================================
@@ -138,9 +139,9 @@ __PACKAGE__->run(@ARGV) unless caller();
 #===============================================================================
 
 sub run {
-    my $file    = shift;
-    my $output  = shift;
-    my $rule    = shift;
+    my $file    = shift @ARGV;
+    my $output  = shift @ARGV;
+    my $rule    = shift @ARGV;
 
     croak "You have to give me one DOT file to read! 1st argument.\n" 
         unless $file;
