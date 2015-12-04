@@ -53,7 +53,7 @@ v0.1.0
 
 # ------
 
-# You can use this module as a script:
+You can use this module as a script:
 
     perl Degree.pm input.dot output.tbl RULE
 
