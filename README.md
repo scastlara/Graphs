@@ -48,7 +48,7 @@ v0.1.0
         say "Node $node->{name} has indegree $node->{in} and outdegree $node->{out}";
     }
 
-\----
+----
 
 You can use dot2degree.pl to sort the nodes of a graph in DOT (graphviz format).
 
@@ -113,7 +113,7 @@ of the list points to a hash with three keys, "name", "in" and "out". To access 
 
 # Dependencies
 
-- Dot::Parser
+If you want to use dot2degree.pl, you'll need the module Dot::Parser.
 
 # LICENSE
 
