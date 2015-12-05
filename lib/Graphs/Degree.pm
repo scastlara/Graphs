@@ -119,11 +119,8 @@ If you don't specify one, it won't print the results.
 
 =head1 Dependencies
 
-=over 8
+If you want to use dot2degree.pl, you'll need the module Dot::Parser.
 
-=item Dot::Parser
-
-=back
 
 =head1 LICENSE
 
