@@ -8,6 +8,7 @@ v0.1.0
 
 # SYNOPSIS
 
+```perl
     use Graphs::Degree;
 
     # To use the module we need a graph in a hash of hashes:
@@ -47,17 +48,20 @@ v0.1.0
     foreach my $node (@{ $nodes }) {
         say "Node $node->{name} has indegree $node->{in} and outdegree $node->{out}";
     }
+```
 
 ----
 
 You can use dot2degree.pl to sort the nodes of a graph in DOT (graphviz format).
 
+```sh
     dot2degree.pl -i input.dot -o output.tbl -r RULE
 
     # You can use the rules 
         TOTAL
         IN
         OUT
+```
 
 # Description
 
@@ -73,9 +77,11 @@ This function takes a hash reference with three elements described below (Argume
 It returns a list with the nodes sorted by the specified rule. The data structure is a list of hashes. Each element
 of the list points to a hash with three keys, "name", "in" and "out". To access the elements of the list:
 
+```perl
     my $node_name      = $nodes->[$index]->{name} ;
     my $node_indegree  = $nodes->[$index]->{in}   ;
     my $node_outdegree = $nodes->[$index]->{out}  ;
+```
 
 # ARGUMENTS
 
@@ -83,6 +89,7 @@ of the list points to a hash with three keys, "name", "in" and "out". To access 
 
     A hash reference that describes a graph as follows:
 
+```perl
         %hash = (
             parent1 => child1
                     => child2
@@ -92,6 +99,7 @@ of the list points to a hash with three keys, "name", "in" and "out". To access 
 
             ...
         )
+```
 
 - **rule**
 
@@ -107,9 +115,11 @@ of the list points to a hash with three keys, "name", "in" and "out". To access 
 
 # Installation
 
+```
     perl Makefile.PL
     make
     make install
+```
 
 # Dependencies
 
